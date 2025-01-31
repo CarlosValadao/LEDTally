@@ -25,7 +25,7 @@ pico_sdk_init()
 add_executable(LEDTally LEDTally.c )
 file(MAKE_DIRECTORY ${CMAKE_CURRENT_LIST_DIR}/generated)
 pico_generate_pio_header(LEDTally ${CMAKE_CURRENT_LIST_DIR}/ws2812.pio OUTPUT_DIR ${CMAKE_CURRENT_LIST_DIR}/generated)
-target_sources(LEDTally PRIVATE LEDTally.c inc/mlt8530.c inc/ws2812b.c)
+target_sources(LEDTally PRIVATE LEDTally.c inc/mlt8530.c inc/ws2812b.c inc/push_button.c)
 target_link_libraries(LEDTally PRIVATE pico_stdlib hardware_pio
                     hardware_clocks hardware_pwm hardware_timer)
 pico_add_extra_outputs(LEDTally)
