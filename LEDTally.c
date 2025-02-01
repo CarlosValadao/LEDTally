@@ -14,9 +14,6 @@ static volatile int8_t glyph_index = 0;
 static volatile uint32_t last_time = 0;
 const uint8_t COLORS[] = {YELLOW, GREEN, BLUE, YELLOW, PURPLE, WHITE, BLUE_MARINE, RED, BLUE_MARINE, PURPLE};
 
-void efeito_bolha_explodindo() {
-    buzzer_beep_default(5000, 10);
-}
 static bool is_whitin_range(volatile int8_t value) { return (value > 0 && value < 10 ? true : false); }
 
 static void set_bounds(volatile int8_t *value) { *value = (*value < 0) ? 9 : 0; }
@@ -49,7 +46,6 @@ int main()
 
     ws = init_ws2812b_default(pio0);
     rgb_init(&rgb);
-    buzzer_init_default();
     pb_config_btn_a();
     pb_config_btn_b();
     pb_config(JOYSTICK_SW, true);
