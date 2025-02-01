@@ -128,3 +128,16 @@ void prepare_glyph(uint8_t *glyph)
 {
     fliplr(glyph);
 }
+
+void ws2812b_draw_b(const uint8_t *glyph, const uint8_t color, const uint8_t intensity)
+{
+    uint8_t i;
+    uint32_t composite_value;
+    for(i = 0; i < 25; i++) {
+        if(glyph[24-i] == 1) {
+            composite_value = ws2812b_compose_led_value(color, intensity);
+            send_ws2812b_data(pio0, 0, composite_value);
+        }
+        else send_ws2812b_data(pio0, 0, 0);
+    }
+}
