@@ -72,6 +72,8 @@ ws2812b_t *init_ws2812b(PIO pio, uint8_t pin);
  */
 void ws2812b_draw(const ws2812b_t *ws, const uint8_t *glyph, const uint8_t color, const uint8_t intensity);
 
+void ws2812b_draw_b(const uint8_t *glyph, const uint8_t color, const uint8_t intensity);
+
 /**
  * @brief Desliga todos os LEDs da matriz WS2812B.
  * 
