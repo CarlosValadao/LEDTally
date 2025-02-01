@@ -1,4 +1,3 @@
-#include "inc/mlt8530.h"
 #include "inc/ws2812b.h"
 #include "inc/rgb.h"
 #include "pico/stdlib.h"
