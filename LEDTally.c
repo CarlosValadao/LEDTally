@@ -8,6 +8,8 @@
 
 #define JOYSTICK_SW 22
 
+#define DELAY_MS 200
+
 #define set_bootsel_mode() reset_usb_boot(0, 0)
 
 static volatile int8_t glyph_index = 0;
@@ -22,7 +24,7 @@ static void set_bounds(volatile int8_t *value) { *value = (*value < 0) ? 9 : 0; 
 void gpio_irq_handler(uint gpio, uint32_t event)
 {
     uint32_t current_time = to_ms_since_boot(get_absolute_time());
-    if(current_time - last_time >= 200)
+    if(current_time - last_time >= DELAY_MS)
     {
         if(gpio == JOYSTICK_SW) set_bootsel_mode();
         glyph_index = (gpio == BUTTON_A ? glyph_index + 1 : glyph_index - 1);
