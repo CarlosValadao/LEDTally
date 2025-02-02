@@ -41,7 +41,8 @@ int main()
     rgbpins rgb = {.red = 13, .green = 12, .blue = 11};
     PIO pio = pio0;
     ws2812b_t *ws;
-    
+    uint8_t const LED_INTENSITY[] = {10, 20, 30, 40, 50, 60, 70, 80, 90, 100};
+
     set_sys_clock_khz(128000, false);
 
     ws = init_ws2812b_default(pio0);
@@ -65,12 +66,11 @@ int main()
         k = 5;
         while(k--)
         {
-            rgb_turn_on_red(&rgb);
+            rgb_turn_on_red(&rgb, LED_INTENSITY[glyph_index]);
             sleep_ms(100);
             rgb_turn_off_red(&rgb);
             sleep_ms(100);
         }
-
     }
     return 0;
 }
