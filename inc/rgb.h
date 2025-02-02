@@ -14,7 +14,13 @@
 /** 
  * @file rgb.h
  * @brief Este arquivo contém declarações de funções e definições relacionadas a um
- *        LED RGB conectado aos pinos GPIO
+ *        LED RGB conectado aos pinos GPIO.
+ * 
+ * @note A intensidade dos LEDs é dada em porcentagem, variando de 0 a 100, onde
+ *       0 significa que o LED estará apagado, e 100 representa a intensidade máxima.
+ *       A função `rgb_turn_on_*` pode ser utilizada para controlar a intensidade 
+ *       de cada cor individualmente, enquanto as funções `rgb_turn_off_*` 
+ *       desligam as cores correspondentes.
  *
  * @author Carlos Valadao
  * @date 17/01/2025
@@ -23,20 +29,85 @@
 
 typedef struct
 {
-    uint red;
-    uint green;
-    uint blue;
+    uint red;    /**< Pino do LED vermelho */
+    uint green;  /**< Pino do LED verde */
+    uint blue;   /**< Pino do LED azul */
 } rgbpins;
 
 
+/**
+ * @brief Inicializa os pinos do LED RGB com base nas configurações passadas.
+ * 
+ * @param pins Estrutura contendo os pinos dos LEDs RGB.
+ */
 void rgb_init(const rgbpins *pins);
+
+
+/**
+ * @brief Acende o LED vermelho com a intensidade especificada.
+ * 
+ * @param pins Estrutura contendo os pinos dos LEDs RGB.
+ * @param intensity Intensidade do LED vermelho, variando de 0 a 100.
+ */
 void rgb_turn_on_red(const rgbpins *pins, uint8_t intensity);
+
+
+/**
+ * @brief Desliga o LED vermelho.
+ * 
+ * @param pins Estrutura contendo os pinos dos LEDs RGB.
+ */
 void rgb_turn_off_red(const rgbpins *pins);
+
+
+/**
+ * @brief Acende o LED verde com a intensidade especificada.
+ * 
+ * @param pins Estrutura contendo os pinos dos LEDs RGB.
+ * @param intensity Intensidade do LED verde, variando de 0 a 100.
+ */
 void rgb_turn_on_green(const rgbpins *pins, uint8_t intensity);
+
+
+/**
+ * @brief Desliga o LED verde.
+ * 
+ * @param pins Estrutura contendo os pinos dos LEDs RGB.
+ */
 void rgb_turn_off_green(const rgbpins *pins);
+
+
+/**
+ * @brief Acende o LED azul com a intensidade especificada.
+ * 
+ * @param pins Estrutura contendo os pinos dos LEDs RGB.
+ * @param intensity Intensidade do LED azul, variando de 0 a 100.
+ */
 void rgb_turn_on_blue(const rgbpins *pins, uint8_t intensity);
+
+
+/**
+ * @brief Desliga o LED azul.
+ * 
+ * @param pins Estrutura contendo os pinos dos LEDs RGB.
+ */
 void rgb_turn_off_blue(const rgbpins *pins);
+
+
+/**
+ * @brief Acende o LED branco com a intensidade especificada.
+ * 
+ * @param pins Estrutura contendo os pinos dos LEDs RGB.
+ * @param intensity Intensidade do LED branco, variando de 0 a 100.
+ */
 void rgb_turn_on_white(const rgbpins *pins, uint8_t intensity);
+
+
+/**
+ * @brief Desliga o LED branco.
+ * 
+ * @param pins Estrutura contendo os pinos dos LEDs RGB.
+ */
 void rgb_turn_off_white(const rgbpins *pins);
 
-#endif
+#endif // RGB_H
