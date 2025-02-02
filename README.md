@@ -37,7 +37,7 @@ O código foi desenvolvido e testado na **Plataforma BitDogLab** versão 6.3, co
 2. **Matriz de LEDs**: Cada número de 0 a 9 é exibido na matriz de 5x5 LEDs, com diferentes cores e intensidades de brilho. A intensidade aumenta/decrease conforme o número é incrementado ou decrementado.
 3. **Botões A e B**: Cada vez que o botão A é pressionado, o número na matriz é incrementado, e com o botão B, o número é decrementado. O valor do número é representado de forma visível na matriz de LEDs.
 
-[Demonstração do programa em pleno funcionamento](https://github.com/CarlosValadao/LEDTally/raw/refs/heads/main/videos/demonstracao.mp4)
+[Demonstração do programa em pleno funcionamento](https://github.com/CarlosValadao/LEDTally/blob/7d71177ee08a68b62cb2895ed936f48a86023e33/videos/demonstracao.mp4)
 
 ## 📥 Como Usar
 
