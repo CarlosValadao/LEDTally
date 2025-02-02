@@ -13,15 +13,11 @@
 static volatile int8_t glyph_index = 0;
 static volatile uint32_t last_time = 0;
 const uint8_t COLORS[] = {YELLOW, GREEN, BLUE, YELLOW, PURPLE, WHITE, BLUE_MARINE, RED, BLUE_MARINE, PURPLE};
+const uint8_t LED_INTENSITY[] = {10, 20, 30, 40, 50, 60, 70, 80, 90, 100};
 
 static bool is_whitin_range(volatile int8_t value) { return (value > 0 && value < 10 ? true : false); }
 
 static void set_bounds(volatile int8_t *value) { *value = (*value < 0) ? 9 : 0; }
-
-static void debounce()
-{
-    return; // TO DO
-}
 
 void gpio_irq_handler(uint gpio, uint32_t event)
 {
@@ -31,7 +27,7 @@ void gpio_irq_handler(uint gpio, uint32_t event)
         if(gpio == JOYSTICK_SW) set_bootsel_mode();
         glyph_index = (gpio == BUTTON_A ? glyph_index + 1 : glyph_index - 1);
         if(!is_whitin_range(glyph_index)) set_bounds(&glyph_index);
-        ws2812b_draw_b(NUMERIC_GLYPHS[glyph_index], COLORS[glyph_index], 1);
+        ws2812b_draw_b(NUMERIC_GLYPHS[glyph_index], COLORS[glyph_index], LED_INTENSITY[glyph_index]);
         last_time = current_time;
     }
 }
@@ -41,7 +37,6 @@ int main()
     rgbpins rgb = {.red = 13, .green = 12, .blue = 11};
     PIO pio = pio0;
     ws2812b_t *ws;
-    uint8_t const LED_INTENSITY[] = {10, 20, 30, 40, 50, 60, 70, 80, 90, 100};
 
     set_sys_clock_khz(128000, false);
 
@@ -59,7 +54,7 @@ int main()
     stdio_init_all();
     ws2812b_turn_off_all(ws);
     sleep_ms(50);
-    ws2812b_draw_b(NUMERIC_GLYPHS[glyph_index], WHITE, 1);
+    ws2812b_draw_b(NUMERIC_GLYPHS[glyph_index], PURPLE, 1);
     uint8_t k;
     while(true)
     {
