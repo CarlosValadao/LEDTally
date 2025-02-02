@@ -10,11 +10,6 @@ void pb_config(uint8_t button_pin, bool pullup)
     if(pullup) gpio_pull_up(button_pin);
 }
 
-void pb_debounce(uint8_t button_pin, uint8_t debounce_time)
-{
-    return; // TO DO
-}
-
 void pb_set_irq_callback(gpio_irq_callback_t callback) { PB_IRQ_CALLBACK = callback; }
 
 void pb_enable_irq(uint button_pin)
