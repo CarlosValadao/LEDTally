@@ -40,7 +40,7 @@ static uint32_t ws2812b_compose_led_value(uint8_t color, uint8_t intensity)
         composite_value = ((intensity_value << 8) | (intensity_value << 16));
         break;
     case WHITE:
-        intensity_value /= 2u;
+        intensity_value /= 3u;
         composite_value = ((intensity_value << 24) | (intensity_value << 16) | (intensity_value << 8));
         break;
     case BLUE_MARINE:
