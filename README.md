@@ -12,6 +12,7 @@ O código foi desenvolvido e testado na **Plataforma BitDogLab** versão 6.3, co
 - **Raspberry Pi Pico** ou **Pico W** 🛒
 - **BitDogLab** versão 6.3 🔧
 - Linguagem: **C** (Versão 11) 💻
+- Pico SDK (Versão 2.1.0) 🛠️
 - Utiliza **pico-sdk**, **extensões do CMake** e **VS Code** para desenvolvimento 🛠️
 - Compilador: **GNU ARM Embedded Toolchain** (`gcc-arm-eabi`) ⚙️
 
