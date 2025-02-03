@@ -7,6 +7,8 @@
 
 O código foi desenvolvido e testado na **Plataforma BitDogLab** versão 6.3, com os seguintes requisitos:
 
+![bitdoglab_v6 3](https://github.com/user-attachments/assets/318f12c5-0f62-4fe4-b99b-2ba74aee626e)
+
 - **Raspberry Pi Pico** ou **Pico W** 🛒
 - **BitDogLab** versão 6.3 🔧
 - Linguagem: **C** (Versão 11) 💻
